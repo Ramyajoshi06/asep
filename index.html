@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Happy Birthday Kani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Navigation Dots -->
+  <div class="nav-dots" id="nav-dots">
+    <div class="nav-dot active" data-target="1" title="Surprise"></div>
+    <div class="nav-dot" data-target="2" title="Birthday"></div>
+    <div class="nav-dot" data-target="3" title="Memories"></div>
+    <div class="nav-dot" data-target="4" title="Video"></div>
+    <div class="nav-dot" data-target="5" title="Letter"></div>
+    <div class="nav-dot" data-target="6" title="Finale"></div>
+  </div>
+
+  <canvas id="particles-canvas"></canvas>
+  <div id="music-btn" class="music-btn hidden"><span id="music-icon">&#127925;</span>
+    <div class="music-ripple"></div>
+  </div>
+  <div id="img-overlay" class="img-overlay">
+    <button id="img-overlay-close" aria-label="Close">&#10005;</button>
+    <img id="img-overlay-img" src="" alt="Memory" />
+    <p id="img-overlay-caption"></p>
+  </div>
+  <section id="screen-1" class="screen active">
+    <div class="screen-bg s1-bg"></div>
+    <div class="s1-content">
+      <p class="s1-hey anim-up delay-1">Hey Kani... &#10084;&#65039;</p>
+      <p class="s1-sub anim-up delay-2">I have a little surprise for you...</p>
+      <div id="gift-box" class="gift-box anim-up delay-3">
+        <div class="gift-lid">
+          <div class="gift-bow">
+            <div class="bow-left"></div>
+            <div class="bow-right"></div>
+            <div class="bow-center"></div>
+          </div>
+        </div>
+        <div class="gift-body">
+          <div class="gift-ribbon-v"></div>
+          <div class="gift-ribbon-h"></div>
+          <div class="gift-shine"></div>
+        </div>
+        <div class="gift-sparkles" id="gift-sparkles"></div>
+      </div>
+      <button id="open-btn" class="btn-primary anim-up delay-4"><span>Open Your Surprise &#127873;</span>
+        <div class="btn-shine"></div>
+      </button>
+    </div>
+  </section>
+  <section id="screen-2" class="screen">
+    <div class="screen-bg s2-bg"></div>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="s2-content">
+      <div class="cake-wrap">
+        <div class="cake-body" id="cake-body">
+          <div class="cake-top">
+            <div class="candle c1">
+              <div class="flame"></div>
+            </div>
+            <div class="candle c2">
+              <div class="flame"></div>
+            </div>
+            <div class="candle c3">
+              <div class="flame"></div>
+            </div>
+          </div>
+          <div class="cake-layer layer-top"></div>
+          <div class="cake-layer layer-mid"></div>
+          <div class="cake-layer layer-bot"></div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+      <h1 class="s2-title">HAPPY BIRTHDAY &#10084;&#65039;</h1>
+      <p class="s2-sub">Today is all about <span class="highlight">YOU</span> &#10024;</p>
+      <div class="balloons-row">
+        <div class="balloon b1">&#127880;</div>
+        <div class="balloon b2">&#127881;</div>
+        <div class="balloon b3">&#127880;</div>
+        <div class="balloon b4">&#127881;</div>
+        <div class="balloon b5">&#127880;</div>
+      </div>
+      <button id="screen2-next-btn" class="btn-primary btn-glow"><span>There's More... &#128140;</span>
+        <div class="btn-shine"></div>
+      </button>
+    </div>
+  </section>
+  <section id="screen-3" class="screen">
+    <div class="screen-bg s3-bg"></div>
+    <div class="s3-content">
+      <h2 class="section-title">Some Beautiful Memories &#10084;&#65039;</h2>
+      <p class="section-subtitle">Every picture tells our story...</p>
+      <div class="polaroid-grid" id="polaroid-grid">
+        <div class="polaroid-card" data-src="assets/photos/photo1.jpeg" data-caption="Our memories">
+          <div class="polaroid-inner"><img src="assets/photos/photo1.jpeg" alt="Memory 1" loading="lazy"
+              style="object-position: center top;" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Our memories &#10024;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo2.jpeg" data-caption="That smile">
+          <div class="polaroid-inner"><img src="assets/photos/photo2.jpeg" alt="Memory 2" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">That smile &#10084;&#65039;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo3.jpeg" data-caption="Moments I'll always remember">
+          <div class="polaroid-inner"><img src="assets/photos/photo3.jpeg" alt="Memory 3" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Moments I'll always remember</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo4.jpeg" data-caption="Pure happiness">
+          <div class="polaroid-inner"><img src="assets/photos/photo4.jpeg" alt="Memory 4" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Pure happiness &#10024;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo5.jpeg" data-caption="This one is my favourite">
+          <div class="polaroid-inner"><img src="assets/photos/photo5.jpeg" alt="Memory 5" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">This one is my favourite &#128150;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo6.jpeg" data-caption="Always shining">
+          <div class="polaroid-inner"><img src="assets/photos/photo6.jpeg" alt="Memory 6" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Always shining &#10024;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo7.jpeg" data-caption="Those eyes">
+          <div class="polaroid-inner"><img src="assets/photos/photo7.jpeg" alt="Memory 7" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Those eyes &#129401;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo8.jpeg" data-caption="Unforgettable">
+          <div class="polaroid-inner"><img src="assets/photos/photo8.jpeg" alt="Memory 8" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Unforgettable &#10084;&#65039;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo9.jpeg" data-caption="Just us">
+          <div class="polaroid-inner"><img src="assets/photos/photo9.jpeg" alt="Memory 9" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Just us &#128149;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo10.jpeg" data-caption="More memories to come">
+          <div class="polaroid-inner"><img src="assets/photos/photo10.jpeg" alt="Memory 10" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">More memories to come &#10024;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo11.jpeg" data-caption="Forever in my heart">
+          <div class="polaroid-inner"><img src="assets/photos/photo11.jpeg" alt="Memory 11" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Forever in my heart &#128151;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo12.jpeg" data-caption="Golden moments">
+          <div class="polaroid-inner"><img src="assets/photos/photo12.jpeg" alt="Memory 12" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Golden moments &#127775;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo13.jpeg" data-caption="You light up my world">
+          <div class="polaroid-inner"><img src="assets/photos/photo13.jpeg" alt="Memory 13" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">You light up my world &#128155;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo14.jpeg" data-caption="Cherished forever">
+          <div class="polaroid-inner"><img src="assets/photos/photo14.jpeg" alt="Memory 14" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Cherished forever &#127800;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo15.jpeg" data-caption="My favourite person">
+          <div class="polaroid-inner"><img src="assets/photos/photo15.jpeg" alt="Memory 15" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">My favourite person &#10084;&#65039;</p>
+        </div>
+        <div class="polaroid-card" data-src="assets/photos/photo16.jpeg" data-caption="Still smiling">
+          <div class="polaroid-inner"><img src="assets/photos/photo16.jpeg" alt="Memory 16" loading="lazy" />
+            <div class="heart-overlay">&#10084;&#65039;</div>
+          </div>
+          <p class="polaroid-caption">Still smiling &#10024;</p>
+        </div>
+      </div>
+      <button id="screen3-next-btn" class="btn-primary btn-glow" style="margin-top:2.5rem;"><span>Now Watch This
+          &#127909;</span>
+        <div class="btn-shine"></div>
+      </button>
+    </div>
+  </section>
+  <section id="screen-4" class="screen">
+    <div class="screen-bg s4-bg"></div>
+    <div class="s4-content">
+      <h2 class="section-title">Now... Watch This &#10084;&#65039;</h2>
+      <p class="section-subtitle">I made this just for you &#127909;</p>
+      <div class="video-wrapper" id="video-wrapper">
+        <video id="birthday-video" preload="none" playsinline controls>
+          <source src="assets/WhatsApp Video 2026-08-18 at 2.33.05 PM.mp4" type="video/mp4" />
+        </video>
+        <div class="video-play-overlay" id="video-play-overlay">
+          <div class="play-btn-circle"><span class="play-icon">&#9654;</span></div>
+          <p>Tap to play &#10084;&#65039;</p>
+        </div>
+        <div class="video-hearts-overlay" id="video-hearts-overlay"></div>
+      </div>
+      <div id="video-end-msg" class="video-end-msg hidden">
+        <p class="video-end-text">Wait... there's still one more thing &#10084;&#65039;</p>
+        <button id="screen4-next-btn" class="btn-primary btn-glow"><span>Open One Last Surprise &#128140;</span>
+          <div class="btn-shine"></div>
+        </button>
+      </div>
+    </div>
+  </section>
+  <section id="screen-5" class="screen">
+    <div class="screen-bg s5-bg"></div>
+    <div class="s5-content">
+      <h2 class="section-title letter-title">A Letter For You &#128140;</h2>
+      <div class="envelope-wrap" id="envelope-wrap">
+        <div class="envelope" id="envelope">
+          <div class="env-back"></div>
+          <div class="env-flap" id="env-flap"></div>
+          <div class="env-front">
+            <div class="env-heart">&#10084;&#65039;</div>
+          </div>
+        </div>
+        <p class="env-tap-hint">Tap the envelope to open &#128140;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Letter Modal — slides up from bottom when envelope is tapped -->
+  <div class="letter-modal-overlay" id="letter-modal-overlay">
+    <div class="letter-modal" id="letter-modal">
+      <div class="letter-modal-header">
+        <span class="letter-modal-title">&#128140; A Letter For You</span>
+        <button class="letter-modal-close" id="letter-modal-close" aria-label="Close">&#10005;</button>
+      </div>
+
+      <div class="letter-content" id="letter-content">
+        <!--
+          LETTER — Edit the message lines below.
+          Each <p class="letter-line"> appears one by one.
+        -->
+        <p class="letter-line">Hey Kani &#10084;&#65039;,</p>
+        <p class="letter-line">&nbsp;</p>
+        <p class="letter-line">Happy Birthday!! &#127874;&#10024;</p>
+        <p class="letter-line">&nbsp;</p>
+        <p class="letter-line">I just wanted you to know that you are one of the</p>
+        <p class="letter-line">most amazing people I've ever known.</p>
+        <p class="letter-line">&nbsp;</p>
+        <p class="letter-line">Your smile can light up an entire room,</p>
+        <p class="letter-line">and your laughter is the best sound in the world. &#127800;</p>
+        <p class="letter-line">&nbsp;</p>
+        <p class="letter-line">You deserve nothing but love, joy,</p>
+        <p class="letter-line">and all the beautiful things life has to offer.</p>
+        <p class="letter-line">&nbsp;</p>
+        <p class="letter-line">Thank you for being you.</p>
+        <p class="letter-line">Thank you for existing. &#128150;</p>
+        <p class="letter-line">&nbsp;</p>
+        <p class="letter-line letter-sign">Happy Birthday, Kani &#10084;&#65039;</p>
+        <p class="letter-line letter-sign2">Keep smiling. You deserve all the happiness in the world. &#10024;</p>
+      </div>
+
+      <div class="letter-modal-footer" id="letter-modal-footer" style="display:none;">
+        <button id="screen5-next-btn" class="btn-primary btn-glow">
+          <span>Final Surprise &#127878;</span>
+          <div class="btn-shine"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section id="screen-6" class="screen">
+    <div class="screen-bg s6-bg"></div>
+    <canvas id="fireworks-canvas"></canvas>
+    <canvas id="final-confetti-canvas"></canvas>
+    <div class="s6-content">
+      <p class="s6-once">Once Again...</p>
+      <h1 class="s6-title">HAPPY BIRTHDAY &#10084;&#65039;&#127874;</h1>
+      <div class="final-emojis">
+        <span class="fe fe1">&#127880;</span><span class="fe fe2">&#127881;</span><span class="fe fe3">&#127882;</span>
+        <span class="fe fe4">&#10024;</span><span class="fe fe5">&#10084;&#65039;</span>
+        <span class="fe fe6">&#127880;</span><span class="fe fe7">&#127881;</span>
+      </div>
+      <p class="s6-made">Made with &#10084;&#65039; just for you.</p>
+      <button id="replay-btn" class="btn-primary btn-glow"><span>Replay From Beginning &#128260;</span>
+        <div class="btn-shine"></div>
+      </button>
+    </div>
+  </section>
+  <audio id="bg-music" loop>
+    <source src="assets/birthday-music.mp3" type="audio/mpeg" />
+  </audio>
+  <script src="script.js"></script>
+</body>
+
+</html>
